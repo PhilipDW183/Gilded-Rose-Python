@@ -25,16 +25,16 @@ class GildedRose(object):
                 self.increase_quality_by_one(item)
             if item.sell_in <= 5:
                 self.increase_quality_by_one(item)
-        elif item.name != self.ragnaros and item.quality > 0:
-            item.quality = item.quality - 1
+        else:
+            self.decrease_quality_by_one(item)
 
     def handle_passed_sell_by_date(self, item):
         if item.name == self.brie:
             self.increase_quality_by_one(item)
         elif item.name == self.backstage_pass:
             item.quality = 0
-        elif item.name != self.ragnaros and item.quality > 0:
-            item.quality = item.quality - 1
+        else:
+            self.decrease_quality_by_one(item)
 
     def decrease_sell_in(self, item):
         if item.name != self.ragnaros:
@@ -43,3 +43,7 @@ class GildedRose(object):
     def increase_quality_by_one(self, item):
         if item.quality < 50:
             item.quality += 1
+
+    def decrease_quality_by_one(self, item):
+        if item.name != self.ragnaros and item.quality > 0:
+            item.quality -= 1
