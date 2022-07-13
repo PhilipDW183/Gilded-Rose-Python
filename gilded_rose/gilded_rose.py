@@ -20,13 +20,16 @@ class GildedRose(object):
         if item.name == self.brie:
             self.increase_quality_by_one(item)
         elif item.name == self.backstage_pass:
-            self.increase_quality_by_one(item)
-            if item.sell_in <= 10:
-                self.increase_quality_by_one(item)
-            if item.sell_in <= 5:
-                self.increase_quality_by_one(item)
+            self.handle_backstage_pass_quality_change(item)
         else:
             self.decrease_quality_by_one(item)
+
+    def handle_backstage_pass_quality_change(self, item):
+        self.increase_quality_by_one(item)
+        if item.sell_in <= 10:
+            self.increase_quality_by_one(item)
+        if item.sell_in <= 5:
+            self.increase_quality_by_one(item)
 
     def handle_passed_sell_by_date(self, item):
         if item.name == self.brie:
