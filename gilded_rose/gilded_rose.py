@@ -21,8 +21,7 @@ class GildedRose(object):
                         if item.sell_in < 6:
                             item.quality = item.quality + 1
 
-            if item.name != self.ragnaros:
-                item.sell_in = item.sell_in - 1
+            self.decrease_sell_in(item)
 
             if item.sell_in < 0:
                 if item.name != self.brie:
@@ -33,3 +32,7 @@ class GildedRose(object):
                         item.quality = item.quality - item.quality
                 elif item.quality < 50:
                     item.quality = item.quality + 1
+
+    def decrease_sell_in(self, item):
+        if item.name != self.ragnaros:
+            item.sell_in = item.sell_in - 1
