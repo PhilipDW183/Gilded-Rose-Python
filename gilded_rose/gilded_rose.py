@@ -21,9 +21,9 @@ class GildedRose(object):
             item.quality = item.quality + 1
         elif item.name == self.backstage_pass and item.quality < 50:
             item.quality = item.quality + 1
-            if item.sell_in < 11 and item.quality < 50:
+            if item.sell_in <= 10 and item.quality < 50:
                 item.quality = item.quality + 1
-            if item.sell_in < 6 and item.quality < 50:
+            if item.sell_in <= 5 and item.quality < 50:
                 item.quality = item.quality + 1
         elif item.name != self.ragnaros and item.quality > 0:
             item.quality = item.quality - 1
