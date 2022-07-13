@@ -24,14 +24,12 @@ class GildedRose(object):
             self.decrease_sell_in(item)
 
             if item.sell_in < 0:
-                if item.name != self.brie:
-                    if item.name != self.backstage_pass:
-                        if item.quality > 0 and item.name != self.ragnaros:
-                            item.quality = item.quality - 1
-                    else:
-                        item.quality = 0
-                elif item.quality < 50:
+                if item.name == self.brie and item.quality < 50:
                     item.quality = item.quality + 1
+                elif item.name == self.backstage_pass:
+                    item.quality = 0
+                elif item.name != self.ragnaros and item.quality > 0:
+                    item.quality = item.quality - 1
 
     def decrease_sell_in(self, item):
         if item.name != self.ragnaros:
