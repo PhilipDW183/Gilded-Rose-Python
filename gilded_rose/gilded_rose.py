@@ -7,7 +7,6 @@ class GildedRose(object):
     ragnaros = "Sulfuras, Hand of Ragnaros"
     brie = "Aged Brie"
 
-
     def update_quality(self):
         for item in self.items:
             if item.name != self.brie and item.name != self.backstage_pass:
@@ -21,8 +20,10 @@ class GildedRose(object):
                             item.quality = item.quality + 1
                         if item.sell_in < 6 and item.quality < 50:
                             item.quality = item.quality + 1
+
             if item.name != self.ragnaros:
                 item.sell_in = item.sell_in - 1
+
             if item.sell_in < 0:
                 if item.name != self.brie:
                     if item.name != self.backstage_pass:
