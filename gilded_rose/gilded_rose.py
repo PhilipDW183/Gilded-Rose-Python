@@ -9,6 +9,7 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
+
             self.change_item_quality(item)
 
             self.decrease_sell_in(item)
@@ -43,7 +44,8 @@ class GildedRose(object):
         if item.name != self.ragnaros:
             item.sell_in = item.sell_in - 1
 
-    def increase_quality_by_one(self, item):
+    @staticmethod
+    def increase_quality_by_one(item):
         if item.quality < 50:
             item.quality += 1
 
