@@ -40,7 +40,8 @@ class GildedRose(object):
         else:
             self.decrease_quality_by_one(item)
 
-    def decrease_sell_in(self, item):
+    @staticmethod
+    def decrease_sell_in(item):
         if item.name != ragnaros:
             item.sell_in = item.sell_in - 1
 
@@ -49,6 +50,7 @@ class GildedRose(object):
         if item.quality < 50:
             item.quality += 1
 
-    def decrease_quality_by_one(self, item):
+    @staticmethod
+    def decrease_quality_by_one(item):
         if item.name != ragnaros and item.quality > 0:
             item.quality -= 1
