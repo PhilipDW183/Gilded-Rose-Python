@@ -2,6 +2,7 @@ backstage_pass = "Backstage passes to a TAFKAL80ETC concert"
 ragnaros = "Sulfuras, Hand of Ragnaros"
 brie = "Aged Brie"
 
+
 class GildedRose(object):
 
     def __init__(self, items):
