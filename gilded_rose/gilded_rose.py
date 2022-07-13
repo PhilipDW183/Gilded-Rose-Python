@@ -12,14 +12,13 @@ class GildedRose(object):
             if item.name != self.brie and item.name != self.backstage_pass:
                 if item.quality > 0 and item.name != self.ragnaros:
                     item.quality = item.quality - 1
-            else:
-                if item.quality < 50:
-                    item.quality = item.quality + 1
-                    if item.name == self.backstage_pass and item.quality < 50:
-                        if item.sell_in < 11:
-                            item.quality = item.quality + 1
-                        if item.sell_in < 6:
-                            item.quality = item.quality + 1
+            elif item.quality < 50:
+                item.quality = item.quality + 1
+                if item.name == self.backstage_pass and item.quality < 50:
+                    if item.sell_in < 11:
+                        item.quality = item.quality + 1
+                    if item.sell_in < 6:
+                        item.quality = item.quality + 1
 
             self.decrease_sell_in(item)
 
