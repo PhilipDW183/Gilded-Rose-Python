@@ -1,11 +1,11 @@
+backstage_pass = "Backstage passes to a TAFKAL80ETC concert"
+ragnaros = "Sulfuras, Hand of Ragnaros"
+brie = "Aged Brie"
+
 class GildedRose(object):
 
     def __init__(self, items):
         self.items = items
-
-    backstage_pass = "Backstage passes to a TAFKAL80ETC concert"
-    ragnaros = "Sulfuras, Hand of Ragnaros"
-    brie = "Aged Brie"
 
     def update_quality(self):
         for item in self.items:
@@ -18,9 +18,9 @@ class GildedRose(object):
                 self.handle_passed_sell_by_date(item)
 
     def change_item_quality(self, item):
-        if item.name == self.brie:
+        if item.name == brie:
             self.increase_quality_by_one(item)
-        elif item.name == self.backstage_pass:
+        elif item.name == backstage_pass:
             self.handle_backstage_pass_quality_change(item)
         else:
             self.decrease_quality_by_one(item)
@@ -33,15 +33,15 @@ class GildedRose(object):
             self.increase_quality_by_one(item)
 
     def handle_passed_sell_by_date(self, item):
-        if item.name == self.brie:
+        if item.name == brie:
             self.increase_quality_by_one(item)
-        elif item.name == self.backstage_pass:
+        elif item.name == backstage_pass:
             item.quality = 0
         else:
             self.decrease_quality_by_one(item)
 
     def decrease_sell_in(self, item):
-        if item.name != self.ragnaros:
+        if item.name != ragnaros:
             item.sell_in = item.sell_in - 1
 
     @staticmethod
@@ -50,5 +50,5 @@ class GildedRose(object):
             item.quality += 1
 
     def decrease_quality_by_one(self, item):
-        if item.name != self.ragnaros and item.quality > 0:
+        if item.name != ragnaros and item.quality > 0:
             item.quality -= 1
